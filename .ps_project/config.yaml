@@ -7,6 +7,6 @@ workflows:
         name: "test-nvidia"
         command: experiment.run_single_node
         params:
-          command: ./run.sh
+          command: bash run.sh
           container: tensorflow/tensorflow:1.13.1-gpu-py3
           machineType: "K80"
