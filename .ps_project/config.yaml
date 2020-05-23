@@ -8,5 +8,5 @@ workflows:
         command: experiment.run_single_node
         params:
           command: bash run.sh
-          container: tensorflow/tensorflow:1.13.1-gpu-py3
+          container: paperspace/dl-containers:pytorch-py36-cu100-jupyter
           machineType: "K80"
