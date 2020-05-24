@@ -69,10 +69,13 @@ class Net(nn.Module):
         x = F.dropout(x, training=self.training)
         x = self.fc2(x)
         return F.log_softmax(x)
+
+device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+print(f"\nTorch device : {device}\n")
 network = Net()
 optimizer = optim.SGD(network.parameters(), lr=learning_rate,
                       momentum=momentum)
-
+network.to(device)
 
 train_losses = []
 train_counter = []
@@ -84,6 +87,8 @@ def train(epoch):
     network.train()
     for batch_idx, (data, target) in enumerate(train_loader):
         optimizer.zero_grad()
+        data=data.to(device)
+        output=output.to(device)
         output = network(data)
         loss = F.nll_loss(output, target)
         loss.backward()
@@ -104,6 +109,8 @@ def test():
     correct = 0
     with torch.no_grad():
         for data, target in test_loader:
+            data=data.to(device)
+            output=output.to(device)
             output = network(data)
             test_loss += F.nll_loss(output, target, size_average=False).item()
             pred = output.data.max(1, keepdim=True)[1]
