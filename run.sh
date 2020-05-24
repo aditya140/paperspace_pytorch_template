@@ -1,4 +1,3 @@
-nvidia-smi
 pip install -r requirements.txt
-python run.py
-python mnsist.py
+python test_cuda.py
+python mnist.py
