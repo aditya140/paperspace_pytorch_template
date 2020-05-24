@@ -95,8 +95,8 @@ def train(epoch):
         train_losses.append(loss.item())
         train_counter.append(
             (batch_idx*64) + ((epoch-1)*len(train_loader.dataset)))
-        torch.save(network.state_dict(), '/artifact/model.pth')
-        torch.save(optimizer.state_dict(), '/artifact/optimizer.pth')
+        torch.save(network.state_dict(), '/artifacts/model.pth')
+        torch.save(optimizer.state_dict(), '/artifacts/optimizer.pth')
 
 def test():
     network.eval()
