@@ -112,7 +112,7 @@ def main(gpu):
 	for epoch in range(1, n_epochs + 1):
 	  	train(epoch)
 	  	test()
-	end_t = time.time()
+	et = time.time()
 	print(f"Time taken : {str(et-st)}")
 
 
