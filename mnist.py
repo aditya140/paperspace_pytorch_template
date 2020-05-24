@@ -88,7 +88,7 @@ def train(epoch):
     for batch_idx, (data, target) in enumerate(train_loader):
         optimizer.zero_grad()
         data=data.to(device)
-        output=output.to(device)
+        target=target.to(device)
         output = network(data)
         loss = F.nll_loss(output, target)
         loss.backward()
@@ -110,7 +110,7 @@ def test():
     with torch.no_grad():
         for data, target in test_loader:
             data=data.to(device)
-            output=output.to(device)
+            target=target.to(device)
             output = network(data)
             test_loss += F.nll_loss(output, target, size_average=False).item()
             pred = output.data.max(1, keepdim=True)[1]
