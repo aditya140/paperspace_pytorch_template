@@ -16,7 +16,7 @@ torch.manual_seed(random_seed)
 def main(gpu):
 		
 	train_loader = torch.utils.data.DataLoader(
-	  torchvision.datasets.MNIST('/files/', train=True, download=True,
+	  torchvision.datasets.MNIST('./files/', train=True, download=True,
 								transform=torchvision.transforms.Compose([
 								  torchvision.transforms.ToTensor(),
 								  torchvision.transforms.Normalize(
@@ -25,7 +25,7 @@ def main(gpu):
 	  batch_size=batch_size_train, shuffle=True)
 
 	test_loader = torch.utils.data.DataLoader(
-	  torchvision.datasets.MNIST('/files/', train=False, download=True,
+	  torchvision.datasets.MNIST('./files/', train=False, download=True,
 								transform=torchvision.transforms.Compose([
 								  torchvision.transforms.ToTensor(),
 								  torchvision.transforms.Normalize(
