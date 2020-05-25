@@ -1,5 +1,1 @@
-torch
-tensorflow
-transformers
-tokenizers
-nlp
+torchvision
