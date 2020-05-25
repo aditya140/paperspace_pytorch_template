@@ -17,6 +17,9 @@ print('\tActive CUDA Device: GPU', torch.cuda.current_device())
 print ('\tAvailable devices ', torch.cuda.device_count())
 print ('\tCurrent cuda device ', torch.cuda.current_device())
 print("+"*30)
+print(torch.tensor(1))
+print(torch.tensor(1).cuda())
 print("""
 ------------------------------Testing Complete--------------------------
 """)
+
